@@ -6,45 +6,12 @@
 /* TODO: IMPORTAR FUENTES PROXIMA NOVA */
 /* Reemplaza 'font-sans' en tailwind.config.ts cuando tengas las fuentes */
 
-/* --- CONFIGURACION DE FUENTES PERSONALIZADAS --- */
-/* Letras - CircularXXSub Regular */
-@font-face {
-  font-family: 'NobitexFont';
-  src: url('/fonts/CircularXXSub-Regular.woff') format('woff');
-  font-weight: 400;
-  font-style: normal;
-}
-
-/* Letras - CircularXXSub Bold */
-@font-face {
-  font-family: 'NobitexFont';
-  src: url('/fonts/CircularXXSub-Bold.woff') format('woff');
-  font-weight: 700;
-  font-style: normal;
-}
-
-/* Letras - CircularXXSub Black */
-@font-face {
-  font-family: 'NobitexFont';
-  src: url('/fonts/CircularXXSub-Black.woff') format('woff');
-  font-weight: 900;
-  font-style: normal;
-}
-
-/* Numeros - RalewayThin-SemiBold_3 */
-@font-face {
-  font-family: 'NobitexFont';
-  src: url('/fonts/RalewayThin-SemiBold_3.woff2') format('woff2');
-  font-weight: 100 900;
-  font-style: normal;
-  unicode-range: U+0030-0039; /* Aplica solo a números del 0 al 9 */
-}
-/* ----------------------------------------------- */
+/* Custom fonts imported via next/font/google in layout.tsx */
 
 :root {
-  /* NobiTex Color System */
-  --primary-nobitex: #101d69;
-  --secondary-nobitex: #fd741a;
+  /* Norbitex Color System */
+  --primary-norbitex: #101d69;
+  --secondary-norbitex: #fd741a;
   
   --background: #ffffff;
   --foreground: #1a1a1a;
@@ -117,8 +84,8 @@
 }
 
 @theme inline {
-  --font-sans: 'NobitexFont', 'Geist', 'Geist Fallback';
-  --font-mono: 'Geist Mono', 'Geist Mono Fallback';
+  --font-sans: var(--font-sora), var(--font-jakarta), sans-serif;
+  --font-mono: var(--font-jetbrains), monospace;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);

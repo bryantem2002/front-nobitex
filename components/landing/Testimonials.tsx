@@ -10,7 +10,7 @@ export default function Testimonials() {
       role: 'Propietaria - Boutique María',
       image: '/cliente1.jpg',
       content:
-        'NobiTex cambió completamente mi operación. Ahora manejo mis inventarios sin estrés y veo exactamente qué tallas se venden más. Mi caja está siempre clara.',
+        'Norbitex cambió completamente mi operación. Ahora manejo mis inventarios sin estrés y veo exactamente qué tallas se venden más. Mi caja está siempre clara.',
       rating: 5,
     },
     {
@@ -18,7 +18,7 @@ export default function Testimonials() {
       role: 'Gerente - Tienda de Moda Carla',
       image: '/cliente2.jpg',
       content:
-        'Desde que usamos NobiTex, hemos reducido pérdidas por error de inventario en 80%. El sistema es intuitivo y el soporte es excelente.',
+        'Desde que usamos Norbitex, hemos reducido pérdidas por error de inventario en 80%. El sistema es intuitivo y el soporte es excelente.',
       rating: 5,
     },
     {

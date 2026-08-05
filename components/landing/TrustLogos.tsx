@@ -23,7 +23,7 @@ export default function TrustLogos() {
           transition={{ duration: 0.6 }}
         >
           <p className="text-sm md:text-base font-semibold text-[#101d69] uppercase tracking-widest mb-2">
-            Confían en NobiTex
+            Confían en Norbitex
           </p>
           <p className="text-xl md:text-2xl font-bold text-gray-900 max-w-2xl mx-auto">
             Negocios textiles que optimizan su operación

@@ -70,14 +70,14 @@ export default function DashboardPreview() {
                   </div>
                   <div className="flex-1 ml-4">
                     <div className="bg-white rounded px-3 py-1 text-xs text-gray-500">
-                      app.nobitex.com
+                      app.norbitex.com
                     </div>
                   </div>
                 </div>
 
                 {/* Content area */}
                 <div className="flex-1 relative bg-gray-50 overflow-hidden">
-                  <img src="/principal.png" alt="Dashboard NobiTex" className="absolute inset-0 w-full h-full object-cover object-top" />
+                  <img src="/principal.png" alt="Dashboard Norbitex" className="absolute inset-0 w-full h-full object-cover object-top" />
                 </div>
               </div>
             </div>

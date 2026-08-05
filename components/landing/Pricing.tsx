@@ -113,7 +113,7 @@ export default function Pricing() {
         </motion.div>
 
         {/* Toggle Mensual/Anual */}
-        <div className="flex justify-center items-center gap-4 mb-12 md:mb-16">
+        <div className="flex justify-center items-center gap-4 mb-28 md:mb-36">
           <span
             className={`text-sm md:text-base font-semibold ${
               !isAnnual ? 'text-[#101d69]' : 'text-gray-600'
@@ -123,10 +123,10 @@ export default function Pricing() {
           </span>
           <button
             onClick={() => setIsAnnual(!isAnnual)}
-            className="relative inline-flex h-8 w-14 items-center rounded-full bg-[#101d69]/20"
+            className="relative inline-flex h-10 w-16 md:h-8 md:w-14 items-center rounded-full bg-[#101d69]/20 transition-all focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#101d69]"
           >
             <span
-              className={`inline-block h-6 w-6 transform rounded-full bg-[#101d69] transition-transform ${
+              className={`inline-block h-8 w-8 md:h-6 md:w-6 transform rounded-full bg-[#101d69] shadow transition-transform duration-200 ease-in-out ${
                 isAnnual ? 'translate-x-7' : 'translate-x-1'
               }`}
             />
@@ -156,22 +156,34 @@ export default function Pricing() {
           {plans.map((plan) => (
             <motion.div
               key={plan.id}
-              className={`relative rounded-2xl transition-all duration-300 overflow-hidden group ${
+              className={`relative rounded-2xl transition-all duration-300 group ${
                 plan.highlighted
-                  ? 'ring-2 ring-[#fd741a] shadow-2xl transform md:scale-105'
-                  : 'border border-gray-200 hover:border-[#101d69] shadow-lg'
-              } ${plan.highlighted ? 'bg-white' : 'bg-white'}`}
+                  ? 'ring-2 ring-[#fd741a] shadow-2xl transform md:scale-105 z-10'
+                  : 'border border-gray-200 hover:border-[#101d69] shadow-lg z-0'
+              } bg-white`}
               variants={cardVariants}
               whileHover={{ y: plan.highlighted ? -8 : -4 }}
             >
-              {/* Badge */}
+              {/* --- ESPACIO PARA TU MASCOTA DE CUERPO ENTERO --- */}
+              {plan.highlighted && (
+                <div className="absolute -top-24 md:-top-32 left-1/2 transform -translate-x-1/2 w-32 h-32 md:w-40 md:h-40 z-20 pointer-events-none">
+                  {/* IMAGEN DE TU MASCOTA */}
+                  <img
+                    src="/tu-mascota-entera.png"
+                    alt="Mascota recomendando el plan"
+                    className="w-full h-full object-contain drop-shadow-2xl"
+                  />
+                </div>
+              )}
+
+              {/* Badge original bajado un poco y con espaciado de letras */}
               {plan.badge && (
-                <div className="absolute top-0 left-0 right-0 bg-gradient-to-r from-[#fd741a] to-[#f5941a] text-white py-2 text-center font-bold text-sm">
+                <div className="absolute top-6 md:top-8 left-0 right-0 bg-gradient-to-r from-[#fd741a] to-[#f5941a] text-white py-2 text-center font-bold text-sm tracking-widest z-10 shadow-sm">
                   {plan.badge}
                 </div>
               )}
 
-              <div className={`p-6 md:p-8 ${plan.badge ? 'pt-20 md:pt-24' : ''}`}>
+              <div className={`p-6 md:p-8 ${plan.badge ? 'pt-24 md:pt-28' : ''}`}>
                 {/* Plan name */}
                 <h3 className="text-2xl font-bold text-[#101d69] mb-2">
                   {plan.name}

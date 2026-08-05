@@ -12,6 +12,7 @@ import Metrics from '@/components/landing/Metrics'
 import Pricing from '@/components/landing/Pricing'
 import Testimonials from '@/components/landing/Testimonials'
 import About from '@/components/landing/About'
+import ShowcaseTabs from '@/components/landing/ShowcaseTabs'
 import FinalCTA from '@/components/landing/FinalCTA'
 import Footer from '@/components/landing/Footer'
 import FloatingButtons from '@/components/landing/FloatingButtons'
@@ -23,6 +24,7 @@ export default function Home() {
       <OfferBanner />
       <Hero />
       <IntegrationsBanner />
+      <ShowcaseTabs />
       <TrustLogos />
       <Problems />
       <Benefits />

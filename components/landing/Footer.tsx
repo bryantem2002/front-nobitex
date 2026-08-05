@@ -33,7 +33,7 @@ export default function Footer() {
     {
       title: 'Legal',
       links: [
-        { label: 'Términos', href: '#' },
+        { label: 'Términos', href: '/terminos' },
         { label: 'Privacidad', href: '#' },
         { label: 'Cookies', href: '#' },
         { label: 'Compliance', href: '#' },
@@ -84,10 +84,7 @@ export default function Footer() {
           {/* Brand section */}
           <motion.div className="lg:col-span-1" variants={itemVariants}>
             <div className="flex items-center gap-3 mb-4">
-              <img src="/logonobiblanco.png" alt="NobiTex Logo" className="h-10 md:h-12 w-auto" />
-              <div className="text-2xl font-bold text-white">
-                NobiTex
-              </div>
+              <img src="/logopngblanco.png" alt="Norbitex Logo" className="h-10 md:h-12 w-auto" />
             </div>
             <p className="text-white/70 text-sm leading-relaxed mb-4">
               El POS para tu tienda de ropa. Controla, vende, crece.
@@ -149,7 +146,7 @@ export default function Footer() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
             {/* Email */}
             <a
-              href="mailto:hola@nobitex.com"
+              href="mailto:hola@norbitex.com"
               className="flex items-start gap-4 p-4 bg-white/10 rounded-lg hover:bg-white/20 transition-all group"
             >
               <EnvelopeOpen
@@ -160,7 +157,7 @@ export default function Footer() {
               <div>
                 <p className="text-sm text-white/70 mb-1">Email</p>
                 <p className="font-semibold text-white group-hover:underline">
-                  hola@nobitex.com
+                  hola@norbitex.com
                 </p>
               </div>
             </a>
@@ -213,7 +210,7 @@ export default function Footer() {
         >
           <div className="text-center md:text-left text-white/70 text-sm">
             <p>
-              © {currentYear} NobiTex. Todos los derechos reservados.
+              © {currentYear} Norbitex. Todos los derechos reservados.
             </p>
           </div>
 

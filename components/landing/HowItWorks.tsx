@@ -68,7 +68,7 @@ export default function HowItWorks() {
             Proceso simple
           </p>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#101d69] leading-tight max-w-3xl mx-auto">
-            Cómo funciona NobiTex
+            Cómo funciona Norbitex
           </h2>
         </motion.div>
 

@@ -40,7 +40,7 @@ export default function About() {
               Sobre nosotros
             </p>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#101d69] leading-tight mb-6">
-              Somos NobiTex
+              Somos Norbitex
             </h2>
 
             <p className="text-gray-700 text-base md:text-lg leading-relaxed mb-6">
@@ -52,7 +52,7 @@ export default function About() {
             <p className="text-gray-700 text-base md:text-lg leading-relaxed mb-8">
               Decidimos crear una solución diferente: un POS diseñado específicamente
               para tiendas de ropa, fácil de usar, confiable y transparente en precio.
-              Hoy, cientos de boutiques y negocios textiles confían en NobiTex para
+              Hoy, cientos de boutiques y negocios textiles confían en Norbitex para
               controlar su operación.
             </p>
 
@@ -90,7 +90,7 @@ export default function About() {
             transition={{ duration: 0.6 }}
           >
             <div className="relative h-96 md:h-[500px] bg-gray-100 rounded-2xl overflow-hidden shadow-xl border-4 border-white">
-              <img src="/equipo.png" alt="Equipo NobiTex" className="w-full h-full object-cover" />
+              <img src="/equipo.png" alt="Equipo Norbitex" className="w-full h-full object-cover" />
             </div>
           </motion.div>
         </div>

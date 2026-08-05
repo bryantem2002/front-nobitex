@@ -17,9 +17,11 @@ export default function FeatureCarousel() {
 
   const [prevBtnDisabled, setPrevBtnDisabled] = useState(true)
   const [nextBtnDisabled, setNextBtnDisabled] = useState(true)
+  const [selectedIndex, setSelectedIndex] = useState(0)
 
   const onSelect = () => {
     if (!emblaApi) return
+    setSelectedIndex(emblaApi.selectedScrollSnap())
     setPrevBtnDisabled(!emblaApi.canScrollPrev())
     setNextBtnDisabled(!emblaApi.canScrollNext())
   }
@@ -130,9 +132,9 @@ export default function FeatureCarousel() {
               {features.map((_, index) => (
                 <button
                   key={index}
-                  onClick={() => emblaApi?.scrollToIndex(index)}
+                  onClick={() => emblaApi?.scrollTo(index)}
                   className={`h-2 rounded-full transition-all ${
-                    index === 0 ? 'w-6 bg-[#101d69]' : 'w-2 bg-gray-300 hover:bg-gray-400'
+                    index === selectedIndex ? 'w-6 bg-[#101d69]' : 'w-2 bg-gray-300 hover:bg-gray-400'
                   }`}
                 />
               ))}

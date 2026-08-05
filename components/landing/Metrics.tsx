@@ -68,7 +68,7 @@ export default function Metrics() {
             Números que hablan por nosotros
           </h2>
           <p className="text-white/70 text-lg mt-4 max-w-2xl mx-auto">
-            Miles de negocios confían en NobiTex para su operación diaria
+            Miles de negocios confían en Norbitex para su operación diaria
           </p>
         </motion.div>
 

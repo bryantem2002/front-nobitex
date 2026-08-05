@@ -37,7 +37,7 @@ export default function Hero() {
           {/* Left Content */}
           <motion.div className="flex flex-col gap-6" variants={itemVariants}>
             <motion.h1
-              className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#101d69] leading-tight"
+              className="text-3xl md:text-5xl lg:text-6xl font-bold text-[#101d69] leading-tight"
               variants={itemVariants}
             >
               Controla tu tienda de ropa con la precisión que tu negocio necesita
@@ -50,12 +50,12 @@ export default function Hero() {
               Gestiona ventas, inventario por talla y color, caja y reportes desde una plataforma diseñada para boutiques y negocios textiles modernos.
             </motion.p>
 
-            <motion.div className="flex flex-col sm:flex-row gap-4" variants={itemVariants}>
-              <button className="px-8 py-4 bg-[#101d69] text-white font-semibold rounded-lg hover:bg-[#0d1650] transition-all flex items-center justify-center gap-2 shadow-lg hover:shadow-xl">
+            <motion.div className="flex flex-col sm:flex-row gap-4 w-full" variants={itemVariants}>
+              <button className="w-full sm:w-auto px-8 py-4 bg-[#101d69] text-white font-semibold rounded-lg hover:bg-[#0d1650] transition-all flex items-center justify-center gap-2 shadow-lg hover:shadow-xl active:bg-[#0d1650]">
                 Probar gratis
                 <ArrowRight size={18} weight="bold" />
               </button>
-              <button className="px-8 py-4 border-2 border-[#101d69] text-[#101d69] font-semibold rounded-lg hover:bg-[#f5f7ff] transition-all flex items-center justify-center gap-2">
+              <button className="w-full sm:w-auto px-8 py-4 border-2 border-[#101d69] text-[#101d69] font-semibold rounded-lg hover:bg-[#f5f7ff] transition-all flex items-center justify-center gap-2 active:bg-[#f5f7ff]">
                 <Play size={18} weight="fill" />
                 Ver demostración
               </button>
