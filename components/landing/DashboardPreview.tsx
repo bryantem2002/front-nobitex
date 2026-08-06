@@ -57,10 +57,10 @@ export default function DashboardPreview() {
           transition={{ duration: 0.6 }}
         >
           {/* Mockup container */}
-          <div className="aspect-video md:aspect-[16/9] lg:aspect-[20/9] w-full flex items-center justify-center p-8 md:p-12 lg:p-16">
-            <div className="flex flex-col items-center justify-center text-center w-full h-full">
+          <div className="w-full p-4 md:p-8 lg:p-12">
+            <div className="w-full mx-auto max-w-6xl">
               {/* Browser chrome simulation */}
-              <div className="w-full bg-white rounded-xl shadow-2xl overflow-hidden border border-gray-200 flex flex-col h-full">
+              <div className="w-full bg-white rounded-xl shadow-2xl overflow-hidden border border-gray-200 flex flex-col">
                 {/* Browser top bar */}
                 <div className="bg-gray-100 px-4 py-3 flex items-center gap-2 border-b border-gray-200">
                   <div className="flex gap-2">
@@ -69,15 +69,15 @@ export default function DashboardPreview() {
                     <div className="w-3 h-3 rounded-full bg-gray-300" />
                   </div>
                   <div className="flex-1 ml-4">
-                    <div className="bg-white rounded px-3 py-1 text-xs text-gray-500">
+                    <div className="bg-white rounded px-3 py-1 text-xs text-gray-500 w-fit">
                       app.norbitex.com
                     </div>
                   </div>
                 </div>
 
                 {/* Content area */}
-                <div className="flex-1 relative bg-gray-50 overflow-hidden">
-                  <img src="/principal.png" alt="Dashboard Norbitex" className="absolute inset-0 w-full h-full object-cover object-top" />
+                <div className="w-full bg-gray-50">
+                  <img src="/principal.png" alt="Dashboard Norbitex" className="w-full h-auto block" />
                 </div>
               </div>
             </div>

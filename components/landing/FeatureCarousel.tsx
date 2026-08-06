@@ -103,15 +103,6 @@ export default function FeatureCarousel() {
                     <p className="text-gray-600 text-sm md:text-base leading-relaxed flex-1">
                       {feature.description}
                     </p>
-
-                    <div className="mt-6 pt-6 border-t border-gray-100 flex items-center text-[#101d69] font-semibold text-sm hover:gap-2 transition-all">
-                      Ver más →
-                    </div>
-
-                    {/* Image */}
-                    <div className="mt-6 h-32 md:h-40 rounded-lg overflow-hidden border border-gray-100 shadow-sm relative bg-gray-50">
-                      <img src="/principal.png" alt={feature.title} className="absolute inset-0 w-full h-full object-cover object-top" />
-                    </div>
                   </motion.div>
                 </div>
               ))}

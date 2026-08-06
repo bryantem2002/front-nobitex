@@ -6,27 +6,30 @@ import { Star } from 'phosphor-react'
 export default function Testimonials() {
   const testimonials = [
     {
-      name: 'María Rodríguez',
-      role: 'Propietaria - Boutique María',
-      image: '/cliente1.jpg',
+      name: 'Cristian Conde',
+      role: 'Kiments.pe',
+      initials: 'CC',
+      color: 'bg-blue-100 text-blue-700',
       content:
-        'Norbitex cambió completamente mi operación. Ahora manejo mis inventarios sin estrés y veo exactamente qué tallas se venden más. Mi caja está siempre clara.',
+        'Excelente plataforma. Ha optimizado por completo nuestra operación diaria y nos permite tener todo bajo control.',
       rating: 5,
     },
     {
-      name: 'Carla Mendez',
-      role: 'Gerente - Tienda de Moda Carla',
-      image: '/cliente2.jpg',
+      name: 'Keyla',
+      role: 'Adaza.pe',
+      initials: 'K',
+      color: 'bg-green-100 text-green-700',
       content:
-        'Desde que usamos Norbitex, hemos reducido pérdidas por error de inventario en 80%. El sistema es intuitivo y el soporte es excelente.',
+        'Norbitex nos ha facilitado muchísimo el control de inventario por tallas. Es rápido y muy fácil de usar.',
       rating: 5,
     },
     {
-      name: 'Patricia López',
-      role: 'Dueña - Boutique Patricia',
-      image: '/cliente3.jpg',
+      name: 'Jonathan Ochante',
+      role: 'Gerente - Donna Sweet',
+      initials: 'JO',
+      color: 'bg-purple-100 text-purple-700',
       content:
-        'Lo mejor es que puedo revisar mis ventas desde mi teléfono. Los reportes me ayudan a tomar mejores decisiones de compra cada semana.',
+        'Me cambió la vida por completo. Ahora administro mi negocio sin complicaciones, sin estrés y con total tranquilidad.',
       rating: 5,
     },
   ]
@@ -101,8 +104,8 @@ export default function Testimonials() {
 
               {/* Author */}
               <div className="border-t border-gray-200 pt-6 flex flex-col md:flex-row items-center gap-4 text-center md:text-left">
-                <div className="w-24 h-24 md:w-20 md:h-20 rounded-full overflow-hidden flex-shrink-0 bg-gray-200 shadow-md">
-                  <img src={testimonial.image} alt={testimonial.name} className="w-full h-full object-cover" />
+                <div className={`w-16 h-16 md:w-14 md:h-14 rounded-full flex items-center justify-center flex-shrink-0 shadow-sm text-xl font-bold ${testimonial.color}`}>
+                  {testimonial.initials}
                 </div>
                 <div>
                   <p className="font-bold text-gray-900 text-sm md:text-base">

@@ -5,11 +5,8 @@ import { motion } from 'framer-motion'
 export default function TrustLogos() {
   const logos = [
     { name: 'Kiments.pe', image: '/negocio1.png' },
-    { name: 'Moda Vital', image: '/negocio2.png' },
-    { name: 'Estilo Urbano', image: '/negocio3.png' },
-    { name: 'Boutique Luna', image: '/negocio4.png' },
-    { name: 'Textiles Roma', image: '/negocio5.png' },
-    { name: 'Alta Costura', image: '/negocio6.png' },
+    { name: 'Adaza.pe', image: '/negocio6.png' },
+    { name: 'Donna Sweet', image: '/negocio7.png' },
   ]
 
   return (
@@ -31,24 +28,24 @@ export default function TrustLogos() {
         </motion.div>
 
         {/* Logo Carousel */}
-        <div className="relative overflow-hidden">
+        <div className="relative overflow-hidden flex">
           <motion.div
-            className="flex gap-8 md:gap-12 py-8"
+            className="flex gap-8 md:gap-16 py-8 w-max"
             initial={{ x: 0 }}
-            animate={{ x: -1000 }}
+            animate={{ x: "-50%" }}
             transition={{
-              duration: 20,
+              duration: 15,
               repeat: Infinity,
               ease: 'linear',
             }}
           >
-            {[...logos, ...logos].map((logo, index) => (
+            {[...logos, ...logos, ...logos, ...logos, ...logos, ...logos].map((logo, index) => (
               <motion.div
                 key={index}
-                className="flex-shrink-0 w-56 md:w-64 flex flex-col items-center justify-center gap-4 cursor-pointer group"
+                className="flex-shrink-0 w-48 md:w-56 flex flex-col items-center justify-center gap-4 cursor-pointer group"
                 whileHover={{ y: -4 }}
               >
-                <div className="w-full h-32 md:h-40 flex items-center justify-center opacity-70 group-hover:opacity-100 transition-all duration-300">
+                <div className="w-full h-24 md:h-32 flex items-center justify-center opacity-70 group-hover:opacity-100 transition-all duration-300">
                   <img src={logo.image} alt={logo.name} className="max-w-full max-h-full object-contain rounded-md" />
                 </div>
                 <p className="text-sm font-medium text-gray-600 group-hover:text-[#101d69] transition-colors text-center truncate w-full">
