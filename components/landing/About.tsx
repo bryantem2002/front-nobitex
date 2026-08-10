@@ -89,8 +89,27 @@ export default function About() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <div className="relative h-96 md:h-[500px] bg-gray-100 rounded-2xl overflow-hidden shadow-xl border-4 border-white">
-              <img src="/equipo.png" alt="Equipo Norbitex" className="w-full h-full object-cover" />
+            <div className="relative h-96 md:h-[500px] bg-gray-100 rounded-2xl overflow-hidden shadow-xl border-4 border-white flex items-center justify-center">
+              {/* Ventanita de Software UI */}
+              <div className="w-[320px] h-[380px] xl:w-[420px] xl:h-[480px] bg-white rounded-3xl shadow-xl overflow-hidden rotate-3 border-4 border-white/10">
+                <div className="h-10 bg-gray-50 flex items-center px-4 gap-2 border-b border-gray-100">
+                  <div className="w-3 h-3 rounded-full bg-red-400" />
+                  <div className="w-3 h-3 rounded-full bg-amber-400" />
+                  <div className="w-3 h-3 rounded-full bg-green-400" />
+                </div>
+                <div className="p-6">
+                  <div className="w-1/2 h-4 bg-gray-200 rounded-full mb-6" />
+                  <div className="w-full h-32 bg-gradient-to-br from-[#fd741a]/10 to-transparent rounded-2xl border border-[#fd741a]/20 mb-4" />
+                  <div className="w-3/4 h-16 bg-blue-50 rounded-2xl" />
+                </div>
+              </div>
+
+              {/* Mascota */}
+              <img
+                src="/tu-mascota-entera2.png"
+                alt="Mascota Norbitex"
+                className="absolute inset-0 w-full h-full object-contain drop-shadow-2xl pointer-events-none scale-[1.15]"
+              />
             </div>
           </motion.div>
         </div>

@@ -19,12 +19,9 @@ export default function Header() {
 
   const navLinks = [
     { label: 'Inicio', href: '/' },
-    { label: 'Soluciones', href: '/#soluciones' },
     { label: 'Beneficios', href: '/#beneficios' },
     { label: 'Planes', href: '/#planes' },
     { label: 'Nosotros', href: '/#nosotros' },
-    { label: 'Contacto', href: '/#contacto' },
-    { label: 'Consulta CPE', href: '/consulta' },
   ]
 
   return (
@@ -34,20 +31,20 @@ export default function Header() {
           isScrolled ? 'bg-white shadow-sm' : 'bg-white'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16 md:h-20">
+        <div className="w-full px-4 sm:px-5 lg:px-8">
+          <div className="flex justify-between items-center h-16 lg:h-20">
             {/* Logo */}
             <Link href="/" className="flex-shrink-0 flex items-center gap-3">
-              <img src="/logopng.png" alt="Norbitex Logo" className="h-8 md:h-9 w-auto" />
+              <img src="/logopng.png" alt="Norbitex Logo" className="h-8 lg:h-9 w-auto" />
             </Link>
 
             {/* Desktop Menu */}
-            <nav className="hidden md:flex items-center gap-8">
+            <nav className="hidden lg:flex items-center gap-5 xl:gap-8">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="text-sm font-medium text-gray-700 hover:text-[#101d69] transition-colors"
+                  className="text-sm xl:text-base font-medium text-gray-700 hover:text-[#101d69] transition-colors whitespace-nowrap"
                 >
                   {link.label}
                 </Link>
@@ -55,19 +52,25 @@ export default function Header() {
             </nav>
 
             {/* Desktop Buttons */}
-            <div className="hidden md:flex items-center gap-3">
-              <button className="px-4 py-2 text-sm font-semibold text-[#101d69] bg-transparent border border-[#101d69] rounded-lg hover:bg-[#101d69] hover:text-white transition-all">
+            <div className="hidden lg:flex items-center gap-2 xl:gap-3">
+              <a
+                href="https://nobitex-mu.vercel.app/login"
+                className="px-3 xl:px-4 py-2 text-sm font-semibold text-[#101d69] bg-transparent border border-[#101d69] rounded-full hover:bg-[#101d69] hover:text-white transition-all whitespace-nowrap"
+              >
                 Iniciar sesión
-              </button>
-              <button className="px-4 py-2 text-sm font-semibold text-white bg-[#101d69] rounded-lg hover:bg-[#0d1650] transition-all">
-                Solicitar demo
-              </button>
+              </a>
+              <a
+                href="https://nobitex-mu.vercel.app/register"
+                className="px-3 xl:px-4 py-2 text-sm font-semibold text-white bg-[#101d69] rounded-full hover:bg-[#0d1650] transition-all whitespace-nowrap"
+              >
+                Registrarme
+              </a>
             </div>
 
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="md:hidden p-2 text-[#101d69]"
+              className="lg:hidden p-2 text-[#101d69]"
             >
               {isOpen ? (
                 <X size={24} weight="bold" />
@@ -83,7 +86,7 @@ export default function Header() {
           <motion.div
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            className="md:hidden bg-white/95 backdrop-blur-md border-t border-gray-100 py-4 px-4 shadow-xl"
+            className="lg:hidden bg-white/95 backdrop-blur-md border-t border-gray-100 py-4 px-4 shadow-xl"
           >
             <nav className="flex flex-col gap-3 mb-4">
               {navLinks.map((link) => (
@@ -98,19 +101,25 @@ export default function Header() {
               ))}
             </nav>
             <div className="flex flex-col gap-3 pt-4 border-t border-gray-100 mt-2">
-              <button className="w-full px-4 py-3 text-base font-semibold text-[#101d69] bg-transparent border border-[#101d69] rounded-lg active:bg-gray-50">
+              <a
+                href="https://nobitex-mu.vercel.app/login"
+                className="w-full px-4 py-3 text-base font-semibold text-[#101d69] bg-transparent border border-[#101d69] rounded-full text-center active:bg-gray-50"
+              >
                 Iniciar sesión
-              </button>
-              <button className="w-full px-4 py-3 text-base font-semibold text-white bg-[#101d69] rounded-lg active:bg-[#0d1650]">
-                Solicitar demo
-              </button>
+              </a>
+              <a
+                href="https://nobitex-mu.vercel.app/register"
+                className="w-full px-4 py-3 text-base font-semibold text-white bg-[#101d69] rounded-full text-center active:bg-[#0d1650]"
+              >
+                Registrarme
+              </a>
             </div>
           </motion.div>
         )}
       </header>
 
       {/* Offset for fixed header */}
-      <div className="h-16 md:h-20" id="inicio" />
+      <div className="h-16 lg:h-20" id="inicio" />
     </>
   )
 }

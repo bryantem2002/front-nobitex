@@ -1,0 +1,72 @@
+export const API_BASE_URL =
+  process.env.NEXT_PUBLIC_API_URL?.replace(/\/$/, '') ?? 'http://localhost:3000'
+
+export type PlanCode =
+  | 'prueba'
+  | 'basico'
+  | 'emprendedor'
+  | 'crecimiento'
+  | 'empresarial'
+
+export type PlanLimits = {
+  users: number
+  branches: number
+  warehouses: number | null
+  products: number
+  variants: number
+  documents: number
+  documentQueries: number
+  storageBytes: number
+}
+
+export type PlanDefinition = {
+  code: PlanCode
+  name: string
+  priceMonthly: string
+  monthlyDiscountPercent: string
+  monthlyOfferPrice: string
+  annualDiscountPercent: string
+  annualPrice: string
+  pricingUpdatedAt: string
+  currency: 'PEN'
+  includesIgv: true
+  trialDays: number | null
+  limits: PlanLimits
+  moduleKeys: string[]
+  highlights: string[]
+}
+
+export type AffiliateCodeResponse =
+  | {
+      valid: true
+      code: string
+      discountPercent: string
+      currency: 'PEN'
+    }
+  | {
+      valid: false
+      code: string
+      discountPercent: '0.00'
+      reason: 'invalid' | 'inactive'
+    }
+
+export async function apiRequest<T>(path: string): Promise<T> {
+  const response = await fetch(`${API_BASE_URL}${path}`)
+  const body = await response.json().catch(() => null)
+
+  if (!response.ok) {
+    throw new Error(readApiError(body))
+  }
+
+  return body as T
+}
+
+function readApiError(body: unknown) {
+  if (!body || typeof body !== 'object') {
+    return 'No se pudo completar la solicitud.'
+  }
+
+  const value = body as { message?: string | string[]; error?: string }
+  if (Array.isArray(value.message)) return value.message.join(' ')
+  return value.message ?? value.error ?? 'No se pudo completar la solicitud.'
+}

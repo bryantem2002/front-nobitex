@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 import { Analytics } from '@vercel/analytics/next'
-import Loader from '@/components/landing/Loader'
 import './globals.css'
 
 const sora = localFont({
@@ -37,8 +36,8 @@ const jetbrainsMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: 'Norbitex - Sistema POS para Tu Tienda de Ropa',
-  description: 'Controla tu tienda de ropa con precisión. Gestiona inventario por talla, color, ventas rápidas, reportes y caja. Diseñado para boutiques y microempresas textiles.',
+  title: 'Norbitex - POS en la Nube para Tu Negocio',
+  description: 'Vende rápido, cuadra tu caja y controla el inventario de tus productos con variantes (talla, color, modelo). El SaaS de punto de venta para negocios con productos por variantes.',
   generator: 'v0.app',
   icons: {
     icon: [
@@ -57,7 +56,6 @@ export default function RootLayout({
   return (
     <html lang="es" className="bg-white">
       <body className={`${sora.variable} ${plusJakartaSans.variable} ${jetbrainsMono.variable} font-sans antialiased bg-white`}>
-        <Loader />
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>

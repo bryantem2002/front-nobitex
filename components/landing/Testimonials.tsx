@@ -6,27 +6,27 @@ import { Star } from 'phosphor-react'
 export default function Testimonials() {
   const testimonials = [
     {
-      name: 'Cristian Conde',
+      name: 'Renzo Valdivia',
       role: 'Kiments.pe',
-      initials: 'CC',
+      initials: 'RV',
       color: 'bg-blue-100 text-blue-700',
       content:
         'Excelente plataforma. Ha optimizado por completo nuestra operación diaria y nos permite tener todo bajo control.',
       rating: 5,
     },
     {
-      name: 'Keyla',
+      name: 'Milagros Paredes',
       role: 'Adaza.pe',
-      initials: 'K',
+      initials: 'MP',
       color: 'bg-green-100 text-green-700',
       content:
         'Norbitex nos ha facilitado muchísimo el control de inventario por tallas. Es rápido y muy fácil de usar.',
       rating: 5,
     },
     {
-      name: 'Jonathan Ochante',
+      name: 'Alvaro Mendoza',
       role: 'Gerente - Donna Sweet',
-      initials: 'JO',
+      initials: 'AM',
       color: 'bg-purple-100 text-purple-700',
       content:
         'Me cambió la vida por completo. Ahora administro mi negocio sin complicaciones, sin estrés y con total tranquilidad.',

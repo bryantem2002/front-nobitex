@@ -3,7 +3,6 @@
 import { motion } from 'framer-motion'
 import {
   WhatsappLogo,
-  EnvelopeOpen,
   InstagramLogo,
   FacebookLogo,
 } from 'phosphor-react'
@@ -15,37 +14,25 @@ export default function Footer() {
     {
       title: 'Producto',
       links: [
-        { label: 'Características', href: '#' },
         { label: 'Planes', href: '#planes' },
-        { label: 'Integraciones', href: '#' },
-        { label: 'Roadmap', href: '#' },
       ],
     },
     {
       title: 'Empresa',
       links: [
         { label: 'Nosotros', href: '#nosotros' },
-        { label: 'Blog', href: '#' },
-        { label: 'Carreras', href: '#' },
-        { label: 'Contacto', href: '#contacto' },
       ],
     },
     {
       title: 'Legal',
       links: [
         { label: 'Términos', href: '/terminos' },
-        { label: 'Privacidad', href: '#' },
-        { label: 'Cookies', href: '#' },
-        { label: 'Compliance', href: '#' },
       ],
     },
     {
       title: 'Soporte',
       links: [
-        { label: 'Centro de ayuda', href: '#' },
-        { label: 'Documentación', href: '#' },
-        { label: 'Estado del servicio', href: '#' },
-        { label: 'Reportar problema', href: '#' },
+        { label: 'Consulta de comprobantes', href: '/consulta' },
       ],
     },
   ]
@@ -132,72 +119,6 @@ export default function Footer() {
               </ul>
             </motion.div>
           ))}
-        </motion.div>
-
-        {/* Contact section */}
-        <motion.div
-          className="mb-12 md:mb-16 pb-12 md:pb-16 border-b border-white/20"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <h3 className="font-semibold text-lg mb-6">Ponte en contacto</h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-            {/* Email */}
-            <a
-              href="mailto:hola@norbitex.com"
-              className="flex items-start gap-4 p-4 bg-white/10 rounded-lg hover:bg-white/20 transition-all group"
-            >
-              <EnvelopeOpen
-                size={24}
-                weight="bold"
-                className="text-[#fd741a] group-hover:scale-110 transition-transform flex-shrink-0 mt-1"
-              />
-              <div>
-                <p className="text-sm text-white/70 mb-1">Email</p>
-                <p className="font-semibold text-white group-hover:underline">
-                  hola@norbitex.com
-                </p>
-              </div>
-            </a>
-
-            {/* WhatsApp */}
-            <a
-              href="https://wa.me/51999999999"
-              className="flex items-start gap-4 p-4 bg-white/10 rounded-lg hover:bg-white/20 transition-all group"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <WhatsappLogo
-                size={24}
-                weight="bold"
-                className="text-[#fd741a] group-hover:scale-110 transition-transform flex-shrink-0 mt-1"
-              />
-              <div>
-                <p className="text-sm text-white/70 mb-1">WhatsApp</p>
-                <p className="font-semibold text-white group-hover:underline">
-                  +51 999 999 999
-                </p>
-              </div>
-            </a>
-
-            {/* Phone/Support */}
-            <a
-              href="tel:+51999999999"
-              className="flex items-start gap-4 p-4 bg-white/10 rounded-lg hover:bg-white/20 transition-all group"
-            >
-              <div className="w-6 h-6 rounded-full bg-[#fd741a] flex items-center justify-center text-sm font-bold flex-shrink-0 group-hover:scale-110 transition-transform mt-1">
-                ☎
-              </div>
-              <div>
-                <p className="text-sm text-white/70 mb-1">Teléfono</p>
-                <p className="font-semibold text-white group-hover:underline">
-                  +51 (1) 999 9999
-                </p>
-              </div>
-            </a>
-          </div>
         </motion.div>
 
         {/* Bottom section */}

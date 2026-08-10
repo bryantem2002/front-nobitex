@@ -1,153 +1,189 @@
 'use client'
 
-import { useState, useEffect } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { Storefront, Package, ChartLineUp } from 'phosphor-react'
+import { useEffect, useState } from 'react'
+import { AnimatePresence, motion } from 'framer-motion'
+import { ChartLineUp, Package, Storefront } from 'phosphor-react'
 
 export default function ShowcaseTabs() {
   const [activeTab, setActiveTab] = useState(0)
 
-  // 3 imágenes horizontales rotativas
   const tabs = [
     {
       id: 0,
       icon: Storefront,
-      title: 'Punto de Venta Ultra Rápido',
-      description: 'Atiende a tus clientes en segundos. Interfaz limpia, sin botones que te confundan.',
-      image: '/galeria-1.jpg'
+      title: 'Punto de Venta Ultra Rapido',
+      description:
+        'Atiende a tus clientes en segundos con una venta limpia, directa y lista para caja.',
+      animation: 'norbitex-mascot--wave',
+      eyebrow: 'Venta en accion',
+      stat: 'Cobro rapido',
     },
     {
       id: 1,
       icon: Package,
       title: 'Control de Inventario Real',
-      description: 'Encuentra tallas, colores y existencias al instante sin moverte de tu mostrador.',
-      image: '/galeria-2.jpg'
+      description:
+        'Encuentra tallas, colores y existencias al instante sin moverte de tu mostrador.',
+      animation: 'norbitex-mascot--idle',
+      eyebrow: 'Stock ordenado',
+      stat: 'Variantes claras',
     },
     {
       id: 2,
       icon: ChartLineUp,
       title: 'Cierres de Caja Perfectos',
-      description: 'Se acabó el estrés de cuadrar caja. Todo automático, transparente y exacto.',
-      image: '/galeria-3.jpg'
-    }
+      description:
+        'Cuadra caja con movimientos visibles, reportes claros y menos trabajo manual.',
+      animation: 'norbitex-mascot--celebrate',
+      eyebrow: 'Cierre listo',
+      stat: 'Reportes al dia',
+    },
   ]
 
-  // Auto-play (cambia cada 6 segundos)
   useEffect(() => {
     const timer = setInterval(() => {
       setActiveTab((prev) => (prev + 1) % tabs.length)
     }, 6000)
+
     return () => clearInterval(timer)
-  }, [])
+  }, [tabs.length])
+
+  const active = tabs[activeTab]
 
   return (
-    <section className="relative min-h-[600px] md:min-h-[750px] flex items-center overflow-hidden py-20 border-t border-gray-100">
-      
-      {/* 1. Fondo Dinámico: Las imágenes horizontales a pantalla completa */}
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={activeTab}
-          // Quitamos el 'scale' inicial porque en algunos navegadores vuelve borrosas las imágenes al escalar píxeles
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.8, ease: "easeInOut" }}
-          className="absolute inset-0 z-0"
-        >
-          <img 
-            src={tabs[activeTab].image} 
-            alt={tabs[activeTab].title}
-            // Mantenemos object-cover puro para máxima nitidez
-            className="w-full h-full object-cover object-center"
-            onError={(e) => {
-              e.currentTarget.style.display = 'none';
-              e.currentTarget.parentElement?.classList.add('bg-gray-900', 'flex', 'items-center', 'justify-center');
-            }}
-          />
-        </motion.div>
-      </AnimatePresence>
-
-      {/* 2. Degradado Protector: Oscurece la izquierda, deja la derecha 100% nítida */}
-      <div className="absolute inset-0 z-0 bg-gradient-to-r from-[#101d69] via-[#101d69]/80 to-transparent" />
-      {/* (Eliminamos la capa extra negra para que tu foto recupere todo su brillo y nitidez original) */}
-
-      {/* 3. Contenido (Flotando sobre la imagen) */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <div className="max-w-2xl">
-          
-          {/* Encabezado */}
+    <section className="relative overflow-hidden border-t border-gray-100 bg-[#101d69] py-16 md:py-24">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_75%_20%,rgba(253,116,26,0.20),transparent_32%),radial-gradient(circle_at_25%_80%,rgba(255,255,255,0.12),transparent_28%)]" />
+      <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-10 px-4 sm:px-6 lg:grid-cols-[0.92fr_1.08fr] lg:px-8">
+        <div>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            {/* Texto limpio sin la cápsula, siguiendo el diseño general de tu web */}
-            <p className="text-sm md:text-base font-semibold text-[#fd741a] uppercase tracking-widest mb-3">
+            <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-[#fd741a] md:text-base">
               La experiencia Norbitex
             </p>
-            <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-10 leading-tight drop-shadow-lg">
-              Diseñado para fluir con tu día
+            <h2 className="mb-6 text-3xl font-bold leading-tight text-white md:text-5xl lg:text-6xl">
+              Disenado para fluir con tu dia
             </h2>
+            <p className="mb-8 max-w-xl text-base leading-relaxed text-blue-100 md:text-lg">
+              Cambia de modulo y mira como Norbitex acompana cada momento de tu tienda:
+              venta, inventario y cierre.
+            </p>
           </motion.div>
 
-          {/* Las 3 Pestañas (Efecto Glassmorphism) */}
           <div className="flex flex-col gap-4">
             {tabs.map((tab, index) => {
               const isActive = activeTab === index
               const Icon = tab.icon
+
               return (
                 <button
                   key={tab.id}
+                  type="button"
                   onClick={() => setActiveTab(index)}
-                  className={`relative p-5 md:p-6 rounded-2xl text-left transition-all duration-500 overflow-hidden group border ${
-                    isActive 
-                      ? 'bg-white/10 border-white/30 backdrop-blur-md shadow-2xl scale-[1.02]' 
-                      : 'bg-transparent border-transparent hover:bg-white/5'
+                  className={`group relative overflow-hidden rounded-[1.65rem] border p-5 text-left transition-all duration-500 md:p-6 ${
+                    isActive
+                      ? 'scale-[1.02] border-white/25 bg-white/12 shadow-2xl backdrop-blur-md'
+                      : 'border-white/10 bg-white/5 hover:bg-white/10'
                   }`}
                 >
-                  <div className="flex items-start gap-4 md:gap-5 relative z-10">
-                    {/* Ícono */}
-                    <div className={`flex-shrink-0 p-3.5 rounded-2xl transition-all duration-500 ${
-                      isActive 
-                        ? 'bg-[#fd741a] text-white shadow-lg' 
-                        : 'bg-white/10 text-white/50 group-hover:bg-white/20'
-                    }`}>
-                      <Icon size={26} weight={isActive ? "fill" : "regular"} />
+                  <div className="relative z-10 flex items-start gap-4 md:gap-5">
+                    <div
+                      className={`flex-shrink-0 rounded-[1.25rem] p-3.5 transition-all duration-500 ${
+                        isActive
+                          ? 'bg-[#fd741a] text-white shadow-lg'
+                          : 'bg-white/10 text-white/55 group-hover:text-white'
+                      }`}
+                    >
+                      <Icon size={26} weight={isActive ? 'fill' : 'regular'} />
                     </div>
-                    
-                    {/* Textos */}
+
                     <div className="mt-1">
-                      <h3 className={`text-xl font-bold mb-2 transition-colors duration-300 ${isActive ? 'text-white' : 'text-white/60 group-hover:text-white/80'}`}>
+                      <h3
+                        className={`mb-2 text-xl font-bold transition-colors duration-300 ${
+                          isActive ? 'text-white' : 'text-white/70 group-hover:text-white'
+                        }`}
+                      >
                         {tab.title}
                       </h3>
-                      <div 
+                      <div
                         className={`overflow-hidden transition-all duration-500 ${
                           isActive ? 'max-h-24 opacity-100' : 'max-h-0 opacity-0'
                         }`}
                       >
-                        <p className="text-sm md:text-base text-blue-50/80 leading-relaxed pr-4">
+                        <p className="pr-4 text-sm leading-relaxed text-blue-50/80 md:text-base">
                           {tab.description}
                         </p>
                       </div>
                     </div>
                   </div>
-                  
-                  {/* Barra de progreso de tiempo naranja */}
+
                   {isActive && (
-                    <motion.div 
+                    <motion.div
+                      key={activeTab}
                       className="absolute bottom-0 left-0 h-[3px] bg-gradient-to-r from-[#fd741a] to-[#ff9b52]"
                       initial={{ width: '0%' }}
                       animate={{ width: '100%' }}
                       transition={{ duration: 6, ease: 'linear' }}
-                      key={activeTab} // Resetea animación
                     />
                   )}
                 </button>
               )
             })}
           </div>
+        </div>
 
+        <div className="relative min-h-[430px] md:min-h-[540px]">
+          <div className="absolute inset-0 rounded-[2.5rem] border border-white/15 bg-white/10 shadow-[0_30px_90px_rgba(0,0,0,0.22)] backdrop-blur-md" />
+          <div className="absolute inset-4 rounded-[2rem] border border-white/10 bg-gradient-to-br from-white/95 to-blue-50 p-5 shadow-2xl md:inset-6 md:p-7">
+            <div className="mb-5 flex items-center justify-between gap-4">
+              <div>
+                <p className="text-xs font-bold uppercase tracking-widest text-[#fd741a]">
+                  {active.eyebrow}
+                </p>
+                <h3 className="mt-1 text-2xl font-bold text-[#101d69] md:text-3xl">
+                  {active.title}
+                </h3>
+              </div>
+              <span className="rounded-full bg-[#101d69] px-4 py-2 text-xs font-bold text-white">
+                {active.stat}
+              </span>
+            </div>
+
+            <div className="relative h-[310px] overflow-hidden rounded-[1.75rem] bg-[#101d69] md:h-[390px]">
+              <div className="absolute left-5 top-5 right-5 z-10 grid grid-cols-3 gap-3">
+                <div className="h-16 rounded-[1.2rem] bg-white/12 ring-1 ring-white/12" />
+                <div className="h-16 rounded-[1.2rem] bg-[#fd741a]/80 ring-1 ring-white/12" />
+                <div className="h-16 rounded-[1.2rem] bg-white/12 ring-1 ring-white/12" />
+              </div>
+
+              <div className="absolute bottom-5 left-5 right-5 z-10 rounded-[1.5rem] bg-white p-4 shadow-xl">
+                <div className="mb-3 h-3 w-32 rounded-full bg-[#101d69]/15" />
+                <div className="grid grid-cols-3 gap-3">
+                  <div className="h-10 rounded-xl bg-gray-100" />
+                  <div className="h-10 rounded-xl bg-gray-100" />
+                  <div className="h-10 rounded-xl bg-[#fd741a]/15" />
+                </div>
+              </div>
+
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={active.id}
+                  className="absolute inset-x-0 bottom-16 z-20 flex justify-center md:bottom-20"
+                  initial={{ opacity: 0, y: 22, scale: 0.92 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: -18, scale: 0.96 }}
+                  transition={{ duration: 0.35, ease: 'easeOut' }}
+                >
+                  <div className={`norbitex-mascot norbitex-mascot--showcase ${active.animation}`} />
+                </motion.div>
+              </AnimatePresence>
+
+              <div className="absolute -bottom-16 left-1/2 h-48 w-48 -translate-x-1/2 rounded-full bg-[#fd741a]/40 blur-3xl" />
+            </div>
+          </div>
         </div>
       </div>
     </section>

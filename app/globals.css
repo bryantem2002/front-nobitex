@@ -131,4 +131,74 @@
   body {
     @apply bg-background text-foreground;
   }
+  html {
+    font-size: clamp(15px, 0.4vw + 13.8px, 18px);
+  }
+}
+
+.norbitex-mascot {
+  --norbitex-scale: 0.62;
+  width: calc(192px * var(--norbitex-scale));
+  height: calc(208px * var(--norbitex-scale));
+  background-image: url('/mascot/norbitex-spritesheet.webp');
+  background-repeat: no-repeat;
+  background-size: calc(1536px * var(--norbitex-scale))
+    calc(2288px * var(--norbitex-scale));
+}
+
+.norbitex-mascot--showcase {
+  --norbitex-scale: 1.25;
+}
+
+.norbitex-mascot--idle {
+  animation: norbitex-idle 1.1s steps(6) infinite;
+}
+
+.norbitex-mascot--wave {
+  animation: norbitex-wave 0.9s steps(4) infinite;
+}
+
+.norbitex-mascot--celebrate {
+  animation: norbitex-celebrate 1s steps(6) infinite;
+}
+
+@keyframes norbitex-idle {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: calc(-1152px * var(--norbitex-scale)) 0;
+  }
+}
+
+@keyframes norbitex-wave {
+  from {
+    background-position: 0 calc(-624px * var(--norbitex-scale));
+  }
+  to {
+    background-position: calc(-768px * var(--norbitex-scale))
+      calc(-624px * var(--norbitex-scale));
+  }
+}
+
+@keyframes norbitex-celebrate {
+  from {
+    background-position: 0 calc(-1248px * var(--norbitex-scale));
+  }
+  to {
+    background-position: calc(-1152px * var(--norbitex-scale))
+      calc(-1248px * var(--norbitex-scale));
+  }
+}
+
+@media (max-width: 640px) {
+  .norbitex-mascot--showcase {
+    --norbitex-scale: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .norbitex-mascot {
+    animation: none;
+  }
 }
