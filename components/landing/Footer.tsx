@@ -71,7 +71,7 @@ export default function Footer() {
           {/* Brand section */}
           <motion.div className="lg:col-span-1" variants={itemVariants}>
             <div className="flex items-center gap-3 mb-4">
-              <img src="/logopngblanco.png" alt="Norbitex Logo" className="h-10 md:h-12 w-auto" />
+              <img src="/logopng.png" alt="Norbitex Logo" className="h-10 md:h-12 w-auto brightness-0 invert" />
             </div>
             <p className="text-white/70 text-sm leading-relaxed mb-4">
               El POS para tu tienda de ropa. Controla, vende, crece.

@@ -11,7 +11,7 @@ export default function TrustLogos() {
 
   return (
     <section className="bg-white py-4 md:py-6">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-12 sm:px-16 lg:px-24">
         <div className="flex flex-col lg:flex-row items-center gap-6 lg:gap-12">
           {/* Texto normal */}
           <div className="flex-shrink-0 text-center lg:text-left">

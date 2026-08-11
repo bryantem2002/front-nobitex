@@ -1,37 +1,37 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { GraduationCap, Gear, ShoppingCart, TrendUp } from 'phosphor-react'
+import { UserPlus, Package, ShoppingCart, ChartLine } from 'phosphor-react'
 
 export default function HowItWorks() {
   const steps = [
     {
       number: 1,
-      icon: GraduationCap,
+      icon: UserPlus,
       title: 'Registra tu negocio',
       description:
-        'Crea tu cuenta en minutos y configura los datos básicos de tu tienda.',
+        'Crea tu cuenta en minutos y configura los datos basicos de tu tienda. Sin complicaciones.',
     },
     {
       number: 2,
-      icon: Gear,
+      icon: Package,
       title: 'Configura tus productos',
       description:
-        'Añade tu catálogo con tallas, colores, modelos y precios.',
+        'Anade tu catalogo con tallas, colores, modelos y precios. Todo organizado a tu manera.',
     },
     {
       number: 3,
       icon: ShoppingCart,
       title: 'Empieza a vender',
       description:
-        'Registra ventas ágiles y ten control total de tu caja desde el primer día.',
+        'Registra ventas agiles, emite comprobantes y ten control total de tu caja desde el primer dia.',
     },
     {
       number: 4,
-      icon: TrendUp,
+      icon: ChartLine,
       title: 'Analiza y crece',
       description:
-        'Revisa reportes y toma decisiones inteligentes para escalar tu negocio.',
+        'Revisa reportes, mide tu rendimiento y toma decisiones inteligentes para escalar tu negocio.',
     },
   ]
 
@@ -39,102 +39,94 @@ export default function HowItWorks() {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
+      transition: { staggerChildren: 0.15 },
     },
   }
 
-  const stepVariants = {
-    hidden: { opacity: 0, x: -20 },
+  const cardVariants = {
+    hidden: { opacity: 0, y: 40 },
     visible: {
       opacity: 1,
-      x: 0,
-      transition: { duration: 0.6 },
+      y: 0,
+      transition: { duration: 0.5, ease: 'easeOut' },
     },
   }
 
   return (
-    <section className="bg-white py-16 md:py-24">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative bg-gray-50 py-16 md:py-24 overflow-hidden">
+      {/* Decorative background */}
+      <div className="absolute top-0 left-0 w-72 h-72 bg-[#fd741a]/5 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#101d69]/5 rounded-full blur-3xl" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
-          className="text-center mb-12 md:mb-16"
+          className="text-center mb-14 md:mb-20"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
           <p className="text-sm md:text-base font-semibold text-[#fd741a] uppercase tracking-widest mb-3">
-            Proceso simple
+            Empieza en minutos
           </p>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#101d69] leading-tight max-w-3xl mx-auto">
-            Cómo funciona Norbitex
+            Como funciona Nuvex
           </h2>
+          <p className="mt-4 text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
+            Cuatro pasos simples para transformar la gestion de tu tienda
+          </p>
         </motion.div>
 
-        {/* Steps */}
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 relative"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: '-100px' }}
+          viewport={{ once: true, margin: '-50px' }}
         >
-          {/* Connection lines (desktop only) */}
-          <div className="hidden lg:block absolute top-[112px] left-0 right-0 h-0.5 bg-gradient-to-r from-[#101d69] via-[#fd741a] to-[#101d69]" />
-
-          {steps.map((step, index) => {
+          {steps.map((step) => {
             const IconComponent = step.icon
             return (
               <motion.div
-                key={index}
-                className="relative flex flex-col items-center text-center"
-                variants={stepVariants}
+                key={step.number}
+                className="group relative bg-white rounded-[2rem] p-8 shadow-[0_8px_30px_rgba(16,29,105,0.06)] hover:shadow-[0_16px_50px_rgba(16,29,105,0.12)] transition-all duration-300 hover:-translate-y-2 border border-gray-100"
+                variants={cardVariants}
               >
-                {/* Step circle */}
-                <motion.div
-                  className="relative mb-10 z-10"
-                  whileHover={{ scale: 1.1 }}
-                  transition={{ type: 'spring', stiffness: 300 }}
-                >
-                  <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-gradient-to-br from-[#101d69] to-[#0d1650] flex items-center justify-center shadow-lg hover:shadow-xl transition-shadow">
-                    <IconComponent
-                      size={40}
-                      weight="bold"
-                      className="text-white"
-                    />
-                  </div>
-                  <div className="absolute -top-2 -right-2 w-8 h-8 bg-[#fd741a] text-white rounded-full flex items-center justify-center font-bold text-lg">
-                    {step.number}
-                  </div>
-                </motion.div>
+                {/* Step number badge */}
+                <div className="absolute -top-4 -right-4 w-10 h-10 bg-[#fd741a] text-white rounded-full flex items-center justify-center font-bold text-lg shadow-lg z-10">
+                  {step.number}
+                </div>
+
+                {/* Icon */}
+                <div className="mb-6 w-16 h-16 rounded-2xl bg-gradient-to-br from-[#101d69] to-[#0d1650] flex items-center justify-center shadow-md group-hover:scale-110 transition-transform duration-300">
+                  <IconComponent size={30} weight="bold" className="text-white" />
+                </div>
 
                 {/* Content */}
-                <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-3">
+                <h3 className="text-xl font-bold text-gray-900 mb-3">
                   {step.title}
                 </h3>
-                <p className="text-gray-600 text-sm md:text-base leading-relaxed">
+                <p className="text-gray-600 text-sm leading-relaxed">
                   {step.description}
                 </p>
 
-                {/* Mobile connector lines */}
-                {index < steps.length - 1 && (
-                  <div className="lg:hidden w-0.5 h-8 bg-gradient-to-b from-[#fd741a] to-transparent my-6" />
+                {/* Arrow connector (except last) */}
+                {step.number < 4 && (
+                  <div className="hidden lg:block absolute top-1/2 -right-5 w-10 h-0.5 bg-gradient-to-r from-[#fd741a]/50 to-transparent" />
                 )}
               </motion.div>
             )
           })}
         </motion.div>
 
-        {/* CTA below */}
         <motion.div
-          className="text-center mt-12 md:mt-16"
+          className="text-center mt-14 md:mt-20"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.4 }}
         >
-          <button className="px-8 py-4 bg-[#101d69] text-white font-semibold rounded-lg hover:bg-[#0d1650] transition-all shadow-lg hover:shadow-xl">
+          <button className="px-8 py-4 bg-[#101d69] text-white font-semibold rounded-full hover:bg-[#0d1650] transition-all shadow-lg hover:shadow-xl active:scale-95">
             Comenzar ahora
           </button>
         </motion.div>

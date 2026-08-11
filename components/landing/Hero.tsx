@@ -36,8 +36,8 @@ export default function Hero() {
   }
 
   return (
-    <section className="relative bg-white pt-2 md:pt-4 pb-12 md:pb-20 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative bg-white pt-2 md:pt-4 pb-4 md:pb-6 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-12 sm:px-16 lg:px-24">
         <motion.div
           className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center"
           variants={containerVariants}
@@ -46,9 +46,9 @@ export default function Hero() {
           viewport={{ once: true, margin: '-100px' }}
         >
           {/* Text Content */}
-          <motion.div className="flex flex-col gap-6 lg:col-span-5 z-10" variants={itemVariants}>
+          <motion.div className="flex flex-col gap-6 lg:col-span-7 z-10" variants={itemVariants}>
             <motion.h1
-              className="text-3xl md:text-4xl font-bold text-[#101d69] leading-tight"
+              className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#101d69] leading-tight"
               variants={itemVariants}
             >
               Convierte tus productos variantes{' '}
@@ -71,16 +71,19 @@ export default function Hero() {
             </motion.h1>
 
             <motion.p
-              className="text-base md:text-lg text-gray-600 leading-relaxed"
+              className="text-sm md:text-base text-gray-600 leading-relaxed"
               variants={itemVariants}
             >
-              Vende rápido, cuadra tu caja y controla el inventario de tus productos con variantes — talla, color, modelo — desde una sola plataforma.
+              Vende rápido, cuadra tu caja, controla el inventario de tus productos con variantes — talla, color, modelo — y emite facturación electrónica desde una sola plataforma.
             </motion.p>
 
             <motion.div className="flex flex-col sm:flex-row gap-4 w-full pt-2" variants={itemVariants}>
-              <button className="w-full sm:w-auto px-8 py-4 bg-[#101d69] text-white font-semibold rounded-lg hover:bg-[#0d1650] transition-all flex items-center justify-center gap-2 shadow-lg hover:shadow-xl active:bg-[#0d1650]">
-                Probar gratis
+              <a href="https://nobitex-mu.vercel.app/register" className="w-full sm:w-auto px-8 py-4 bg-[#101d69] text-white font-semibold rounded-full hover:bg-[#0d1650] transition-all flex items-center justify-center gap-2 shadow-lg hover:shadow-xl active:bg-[#0d1650]">
+                Empezar gratis 7 días
                 <ArrowRight size={18} weight="bold" />
+              </a>
+              <button className="w-full sm:w-auto px-8 py-4 text-[#101d69] font-semibold rounded-full border-2 border-[#101d69] hover:bg-[#101d69] hover:text-white transition-all flex items-center justify-center gap-2">
+                Ver planes
               </button>
             </motion.div>
 
@@ -109,13 +112,13 @@ export default function Hero() {
 
           {/* Image */}
           <motion.div
-            className="order-first lg:order-last lg:col-span-7 relative w-full flex justify-center lg:justify-start items-center mt-8 lg:mt-0"
+            className="order-first lg:order-last lg:col-span-5 relative w-full flex justify-center lg:justify-start items-center mt-8 lg:mt-0"
             variants={itemVariants}
           >
             <img
-              src="/principal.png"
+              src="/mascotanovix.png"
               alt="POS en acción"
-              className="w-full sm:w-full lg:w-[110%] xl:w-[120%] max-w-none h-auto object-contain drop-shadow-2xl lg:-mr-[15%]"
+              className="w-full sm:w-full lg:w-full max-w-none h-auto object-contain drop-shadow-2xl"
             />
           </motion.div>
         </motion.div>
