@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 import { Analytics } from '@vercel/analytics/next'
+import Script from 'next/script'
 import './globals.css'
 
 const sora = localFont({
@@ -35,6 +36,9 @@ const jetbrainsMono = localFont({
   variable: '--font-jetbrains'
 });
 
+const umamiWebsiteId = process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID
+const umamiScriptUrl = process.env.NEXT_PUBLIC_UMAMI_SCRIPT_URL ?? 'https://cloud.umami.is/script.js'
+
 export const metadata: Metadata = {
   title: 'Norbitex - POS en la Nube para Tu Negocio',
   description: 'Vende rápido, cuadra tu caja y controla el inventario de tus productos con variantes (talla, color, modelo). El SaaS de punto de venta para negocios con productos por variantes.',
@@ -57,6 +61,13 @@ export default function RootLayout({
     <html lang="es" className="bg-white">
       <body className={`${sora.variable} ${plusJakartaSans.variable} ${jetbrainsMono.variable} font-sans antialiased bg-white`}>
         {children}
+        {umamiWebsiteId && (
+          <Script
+            src={umamiScriptUrl}
+            data-website-id={umamiWebsiteId}
+            strategy="afterInteractive"
+          />
+        )}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>
